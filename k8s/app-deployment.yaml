@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: campusfit
+  namespace: campusfit
 
 spec:
   replicas: 2
@@ -53,3 +54,12 @@ spec:
             port: 3000
           initialDelaySeconds: 10
           periodSeconds: 5
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+
+  limits:
+    cpu: "500m"
+    memory: "512Mi"

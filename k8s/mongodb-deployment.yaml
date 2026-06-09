@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: mongodb
+  namespace: campusfit
 
 spec:
   replicas: 1

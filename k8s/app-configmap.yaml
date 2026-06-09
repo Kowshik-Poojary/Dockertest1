@@ -3,6 +3,7 @@ kind: ConfigMap
 
 metadata:
   name: app-config
+  namespace: campusfit
 
 data:
   PORT: "3000"
