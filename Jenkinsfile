@@ -49,24 +49,24 @@ stages {
     }
 
     stage('Deploy to Kubernetes') {
-        steps {
+    steps {
+        sh """
+        kubectl set image deployment/campusfit \
+        campusfit=${IMAGE_NAME}:${IMAGE_TAG} \
+        -n campusfit
 
-            sh '''
-            kubectl set image deployment/campusfit \
-            campusfit=$IMAGE_NAME:$IMAGE_TAG
-
-            kubectl rollout status deployment/campusfit
-            '''
-        }
+        kubectl rollout status deployment/campusfit \
+        -n campusfit
+        """
     }
-
+}
     stage('Verify Deployment') {
         steps {
 
             sh '''
-            kubectl get pods
+            kubectl get pods -n campusfit
 
-            URL=$(minikube service campusfit-service --url)
+            URL=$(minikube service campusfit-service -n campusfit --url)
 
             curl -f $URL/health
             '''
