@@ -13,7 +13,6 @@ app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
-const a =
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({
