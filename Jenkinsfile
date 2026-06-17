@@ -61,17 +61,20 @@ stages {
     }
 }
     stage('Verify Deployment') {
-        steps {
+    steps {
+        sh '''
+        echo "Checking Pods..."
 
-            sh '''
-            kubectl get pods -n campusfit
+        kubectl get pods -n campusfit
 
-            URL=$(minikube service campusfit-service -n campusfit --url)
+        echo "Checking Deployment..."
 
-            curl -f $URL/health
-            '''
-        }
+        kubectl rollout status deployment/campusfit -n campusfit
+
+        echo "Verification Successful"
+        '''
     }
+}
 }
 
 post {
