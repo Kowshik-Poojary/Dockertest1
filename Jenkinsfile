@@ -3,7 +3,7 @@ pipeline {
 agent any
 
 environment {
-    IMAGE_NAME = "kowshikpoojary8180/campusfit"
+    IMAGE_NAME = "kowshikpoojary8180/campusfit-invalid"
     IMAGE_TAG = "${BUILD_NUMBER}"
 }
 
