@@ -3,7 +3,7 @@ pipeline {
 agent any
 
 environment {
-    IMAGE_NAME = "kowshikpoojary8180/campusfit-invalid"
+    IMAGE_NAME = "kowshikpoojary8180/campusfit"
     IMAGE_TAG = "${BUILD_NUMBER}"
 }
 
@@ -51,7 +51,7 @@ stages {
     stage('Deploy to Kubernetes') {
     steps {
         sh """
-        kubectl set image deployment/campusfit \
+        kubectl set image deployment/campusfit123444 \
         campusfit=${IMAGE_NAME}:${IMAGE_TAG} \
         -n campusfit
 
