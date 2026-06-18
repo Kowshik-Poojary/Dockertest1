@@ -51,7 +51,7 @@ stages {
     stage('Deploy to Kubernetes') {
     steps {
         sh """
-        kubectl set image deployment/campusfit1234444 \
+        kubectl set image deployment/campusfit \
         campusfit=${IMAGE_NAME}:${IMAGE_TAG} \
         -n campusfit
 
